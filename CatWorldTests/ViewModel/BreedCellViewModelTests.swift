@@ -38,16 +38,20 @@ class BreedCellViewModelTests: XCTestCase {
             XCTFail("Incorrect data format")
             return
         }
+        let fakeImageCache = MockImageCache()
         let session = MockNetworkSession(data: mockimageModel,
                                          error: nil,
                                          url: nil)
-        sut = BreedCellViewModel(breed, session: session)
+        sut = BreedCellViewModel(breed,
+                                 session: session,
+                                 imageCache: fakeImageCache )
 
         let expectation = XCTestExpectation(description: "Placeholder or real image will be returned")
         let expectedName = "American Curl"
         
         // THEN: Image bindable will be called
         sut.showImage.bind { _ in
+            XCTAssertNotNil(self.sut.image)
             expectation.fulfill()
         }
         XCTAssertEqual(expectedName, sut.name)

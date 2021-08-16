@@ -14,6 +14,7 @@ final class BreedCellViewModel: BreedCellViewModelProtocol {
     private let networkManager: NetworkManager
     private var imageModel: Breed.ImageModel?
     private var getImageCalled = false
+    private let imageCache: ImageCacheProtocol
 
     let name: String
     var showImage: Bindable<Void> = Bindable(())
@@ -26,11 +27,13 @@ final class BreedCellViewModel: BreedCellViewModelProtocol {
 
     // MARK:- Initialization
     init(_ breed: Breed,
-         session: NetworkSession = URLSession.shared) {
+         session: NetworkSession = URLSession.shared,
+         imageCache: ImageCacheProtocol = ImageCache.publicCache) {
         self.breed = breed
         self.name = breed.name
         self.referenceId = breed.referenceId?.replacingOccurrences(of: "\n",
                                                                    with: "")
+        self.imageCache = imageCache
         self.networkManager = NetworkManager(session: session)
         fetchimageModel()
     }
@@ -76,7 +79,7 @@ private extension BreedCellViewModel {
 
     func fetchImage(_ imageModel: Breed.ImageModel) {
         guard let image = imageModel.image else {
-            ImageCache.publicCache.load(item: imageModel) { [weak self] data, image in
+            imageCache.load(item: imageModel) { [weak self] data, image in
                 if data.url == imageModel.url {
                     self?.image = image
                 }
