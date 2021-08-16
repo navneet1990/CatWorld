@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "decode(imageData:completion:)"
+            landmarkName = "decode(imageModel:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
