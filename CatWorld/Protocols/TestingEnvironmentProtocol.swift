@@ -7,8 +7,8 @@ import Foundation
 
 /* Protocol for validating testing environment
   * Check if UI test case running
-  * Check if both UI and Unit test running
-  * Return local store mock taka
+  * Return local store mock data
+ * There are many approached, but this is one of the approach we can use for UI testing mock data
  **/
 protocol TestingEnvironment {
   

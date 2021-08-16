@@ -22,14 +22,18 @@ struct NetworkManager: NetworkProtocol {
     // MARK:- Network protocol methods
     func fetchCatsFromServer(search text: String,
                              completion: @escaping SearchCompletion) {
-        // Validate for UI testing
+        /* *Validate for UI testing
+         * This if isUITestCaseRunning() method is used to pass mock data for UI testing.
+         * Due to time limitation, the implementation for UI testing is incomplete
+         * There are many approached, but this is one of the approach we can use for UI testing mock data
+         */
         if isUITestCaseRunning(){
-          guard let data = getMockBreedsData() else{
-            completion(.failure(.invalidDataFormat))
-            return
-          }
+            guard let data = getMockBreedsData() else{
+                completion(.failure(.invalidDataFormat))
+                return
+            }
 
-          NetworkManager.decode(data: data, completion: completion)
+            NetworkManager.decode(data: data, completion: completion)
           return
         }
 
