@@ -5,9 +5,10 @@ User can search any cat breed, and grid list will be display with typing. User c
 [![Xcode](https://img.shields.io/badge/Xcode-12.5.1-blue.svg)](https://developer.apple.com/xcode)
 
 This project is developed  in Swift without any third party framework. The app displays cats from server based upon keyword entered on search bar, and user can scroll the grid list and tap the icon to see detail page.
+Below are the screens:
 
 
-
+<img height="480" src="https://github.com/navneet1990/CatWorld/blob/main/CatWorld/Resources/DemoScreeenshot/SearchPage.png" alt="CatWorld">    <img height="480" src="https://github.com/navneet1990/CatWorld/blob/main/CatWorld/Resources/DemoScreeenshot/DetailPage.png" alt="CatWorld">
 
 ## Table of Contents
 
@@ -54,7 +55,7 @@ them to find out more about a specific cat (or dog).
 ## Limitations:
 - No offline support.
 - No support for dogs API
-- No UI testing support
+- No UI testing support. Just added one method and one of the approach we can also use for UI testing mock data
 ** These above limitation are due to time bound.**
 
 
