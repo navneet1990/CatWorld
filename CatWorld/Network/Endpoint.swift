@@ -14,7 +14,6 @@ struct Endpoint {
 }
 
 /// Dummy API specific Endpoint extension
-
 extension Endpoint {
     var url: URL? {
         var components = URLComponents()
@@ -22,14 +21,14 @@ extension Endpoint {
         components.host = prefixHost + "thecatapi.com"
         components.path =  path
         components.queryItems = queryItems
-
+        
         guard let url = components.url else {
             preconditionFailure("Invalid URL components: \(components)")
         }
-
+        
         return url
     }
-
+    
     var headers: [String: String] {
         return [
             "x-api-key": "b0819e77-42d0-4b42-a16f-d06ef072f43c"
@@ -38,7 +37,7 @@ extension Endpoint {
 }
 
 extension Endpoint {
-
+    
     static func search(_ text: String) -> Self {
         return Endpoint(path: "/v1/breeds/search", prefixHost: "api.", queryItems: [
             URLQueryItem(name: "q", value: text)
@@ -47,5 +46,5 @@ extension Endpoint {
     static func imagesData(_ id: String) -> Self {
         return Endpoint(path: "/v1/images/" + id, prefixHost: "api.")
     }
-
+    
 }

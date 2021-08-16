@@ -39,9 +39,6 @@ private extension CWDetailViewController {
         }
         viewModel.displayDetails.bind { _ in
             DispatchQueue.main.async { [weak self] in
-                if let image = viewModel.image {
-                    self?.imageView.image = image
-                }
                 self?.nameLabel.text = viewModel.name
                 self?.temperantLabel.text = viewModel.temperant
                 self?.energyLevel.text = viewModel.energy
@@ -56,6 +53,13 @@ private extension CWDetailViewController {
             }
         }
         
+        viewModel.loadImage.bind { _ in
+            DispatchQueue.main.async { [weak self] in
+                if let image = viewModel.image {
+                    self?.imageView.image = image
+                }
+            }
+        }
         viewModel.loadDetails()
     }
 }

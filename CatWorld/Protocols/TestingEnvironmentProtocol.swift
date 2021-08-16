@@ -13,24 +13,25 @@ import Foundation
 protocol TestingEnvironment {
   
   func isUITestCaseRunning() -> Bool
-  func getMockData() -> Data?
-  func isTestCaseRunning()-> Bool
+  func getMockBreedsData() -> Data?
 }
 
 extension TestingEnvironment{
-  func isTestCaseRunning() -> Bool {
-    return isUITestCaseRunning() || NSClassFromString("XCTest") != nil
-  }
+
   func isUITestCaseRunning() -> Bool {
     return  ProcessInfo.processInfo.arguments.contains("isUITesting")
   }
-  func getMockData() -> Data?{
-    guard ProcessInfo.processInfo.environment["noData"] == "true" else{
-      return Constants.Mock.data
-    }
-    return nil
-  }
+
+    func getMockBreedsData() -> Data? {
+        guard ProcessInfo.processInfo.environment["noData"] == "true",
+              let url = Bundle.main.url(forResource: "Breeds",
+                                        withExtension: "json"),
+              let data = try? Data(contentsOf: url ) else {
+
+                return nil
+            }
+            return data
+        }
 }
 
-//extension CWViewModal: TestingEnvironment{}
 extension NetworkManager: TestingEnvironment{}

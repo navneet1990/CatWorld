@@ -13,7 +13,6 @@
 		F108850E26C07D2500F70023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F108850C26C07D2500F70023 /* Main.storyboard */; };
 		F108851326C07D2800F70023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F108851226C07D2800F70023 /* Assets.xcassets */; };
 		F108851626C07D2800F70023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F108851426C07D2800F70023 /* LaunchScreen.storyboard */; };
-		F108852126C07D2800F70023 /* CatWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108852026C07D2800F70023 /* CatWorldTests.swift */; };
 		F108852C26C07D2800F70023 /* CatWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108852B26C07D2800F70023 /* CatWorldUITests.swift */; };
 		F108853F26C07E2800F70023 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108853C26C07E2800F70023 /* Result.swift */; };
 		F108854026C07E2800F70023 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108853D26C07E2800F70023 /* NetworkManager.swift */; };
@@ -27,7 +26,6 @@
 		F108855526C07EE700F70023 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108855226C07EE700F70023 /* Breed.swift */; };
 		F108855626C07EE700F70023 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108855326C07EE700F70023 /* Alert.swift */; };
 		F108855726C07EE700F70023 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108855426C07EE700F70023 /* Bindable.swift */; };
-		F108855B26C07F4600F70023 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108855926C07F4600F70023 /* Constants.swift */; };
 		F108855F26C080D300F70023 /* CWSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108855E26C080D300F70023 /* CWSearchViewModel.swift */; };
 		F108856126C0E69E00F70023 /* BreedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108856026C0E69E00F70023 /* BreedCell.swift */; };
 		F108856526C1A6FB00F70023 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108856426C1A6FB00F70023 /* ImageCache.swift */; };
@@ -39,15 +37,22 @@
 		F12D50FB26C58F3900B690CC /* BreedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D50FA26C58F3900B690CC /* BreedCellViewModel.swift */; };
 		F12D50FD26C5B8A800B690CC /* UICollectionView+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D50FC26C5B8A800B690CC /* UICollectionView+Background.swift */; };
 		F12D50FF26C5F04800B690CC /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D50FE26C5F04800B690CC /* Endpoint.swift */; };
-		F12D510126C5F3EA00B690CC /* Breed+ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D510026C5F3EA00B690CC /* Breed+ImageData.swift */; };
+		F12D510126C5F3EA00B690CC /* Breed+ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D510026C5F3EA00B690CC /* Breed+ImageModel.swift */; };
 		F12D510626C5F8BC00B690CC /* ErrorResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D510426C5F8BC00B690CC /* ErrorResultTests.swift */; };
 		F12D510726C5F8BC00B690CC /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D510526C5F8BC00B690CC /* NetworkManagerTest.swift */; };
 		F12D510926C5FD1600B690CC /* MockNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D510826C5FD1600B690CC /* MockNetworkSession.swift */; };
 		F12D510C26C600A700B690CC /* Breeds.json in Resources */ = {isa = PBXBuildFile; fileRef = F12D510B26C600A700B690CC /* Breeds.json */; };
 		F12D510E26C60F3A00B690CC /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D510D26C60F3A00B690CC /* MockData.swift */; };
-		F12D511026C617B300B690CC /* ImageData.json in Resources */ = {isa = PBXBuildFile; fileRef = F12D510F26C617B300B690CC /* ImageData.json */; };
-		F12D511126C6193E00B690CC /* ImageData.json in Resources */ = {isa = PBXBuildFile; fileRef = F12D510F26C617B300B690CC /* ImageData.json */; };
+		F12D511026C617B300B690CC /* ImageModel.json in Resources */ = {isa = PBXBuildFile; fileRef = F12D510F26C617B300B690CC /* ImageModel.json */; };
+		F12D511126C6193E00B690CC /* ImageModel.json in Resources */ = {isa = PBXBuildFile; fileRef = F12D510F26C617B300B690CC /* ImageModel.json */; };
 		F12D511226C6193E00B690CC /* Breeds.json in Resources */ = {isa = PBXBuildFile; fileRef = F12D510B26C600A700B690CC /* Breeds.json */; };
+		F12D511626C6E57D00B690CC /* BindableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D511426C6E57D00B690CC /* BindableTests.swift */; };
+		F12D511726C6E57D00B690CC /* AlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D511526C6E57D00B690CC /* AlertTests.swift */; };
+		F12D511926C6EB9B00B690CC /* CWSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D511826C6EB9B00B690CC /* CWSearchViewModelTests.swift */; };
+		F162A48E26C744E0000160E7 /* BreedCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162A48D26C744E0000160E7 /* BreedCellViewModelTests.swift */; };
+		F162A49226C78067000160E7 /* CWDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162A49126C78067000160E7 /* CWDetailViewModelTests.swift */; };
+		F162A49726C9BCC5000160E7 /* MockImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162A49626C9BCC5000160E7 /* MockImageCache.swift */; };
+		F162A49B26C9E421000160E7 /* XCTest+MockBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162A49A26C9E421000160E7 /* XCTest+MockBreed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +82,6 @@
 		F108851526C07D2800F70023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F108851726C07D2800F70023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F108851C26C07D2800F70023 /* CatWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F108852026C07D2800F70023 /* CatWorldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatWorldTests.swift; sourceTree = "<group>"; };
 		F108852226C07D2800F70023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F108852726C07D2800F70023 /* CatWorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatWorldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F108852B26C07D2800F70023 /* CatWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatWorldUITests.swift; sourceTree = "<group>"; };
@@ -94,7 +98,6 @@
 		F108855226C07EE700F70023 /* Breed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		F108855326C07EE700F70023 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		F108855426C07EE700F70023 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
-		F108855926C07F4600F70023 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F108855E26C080D300F70023 /* CWSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWSearchViewModel.swift; sourceTree = "<group>"; };
 		F108856026C0E69E00F70023 /* BreedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCell.swift; sourceTree = "<group>"; };
 		F108856426C1A6FB00F70023 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -106,13 +109,20 @@
 		F12D50FA26C58F3900B690CC /* BreedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCellViewModel.swift; sourceTree = "<group>"; };
 		F12D50FC26C5B8A800B690CC /* UICollectionView+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Background.swift"; sourceTree = "<group>"; };
 		F12D50FE26C5F04800B690CC /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		F12D510026C5F3EA00B690CC /* Breed+ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Breed+ImageData.swift"; sourceTree = "<group>"; };
+		F12D510026C5F3EA00B690CC /* Breed+ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Breed+ImageModel.swift"; sourceTree = "<group>"; };
 		F12D510426C5F8BC00B690CC /* ErrorResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResultTests.swift; sourceTree = "<group>"; };
 		F12D510526C5F8BC00B690CC /* NetworkManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
 		F12D510826C5FD1600B690CC /* MockNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkSession.swift; sourceTree = "<group>"; };
 		F12D510B26C600A700B690CC /* Breeds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Breeds.json; sourceTree = "<group>"; };
 		F12D510D26C60F3A00B690CC /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
-		F12D510F26C617B300B690CC /* ImageData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ImageData.json; sourceTree = "<group>"; };
+		F12D510F26C617B300B690CC /* ImageModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ImageModel.json; sourceTree = "<group>"; };
+		F12D511426C6E57D00B690CC /* BindableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableTests.swift; sourceTree = "<group>"; };
+		F12D511526C6E57D00B690CC /* AlertTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTests.swift; sourceTree = "<group>"; };
+		F12D511826C6EB9B00B690CC /* CWSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSearchViewModelTests.swift; sourceTree = "<group>"; };
+		F162A48D26C744E0000160E7 /* BreedCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCellViewModelTests.swift; sourceTree = "<group>"; };
+		F162A49126C78067000160E7 /* CWDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWDetailViewModelTests.swift; sourceTree = "<group>"; };
+		F162A49626C9BCC5000160E7 /* MockImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageCache.swift; sourceTree = "<group>"; };
+		F162A49A26C9E421000160E7 /* XCTest+MockBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+MockBreed.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,9 +191,11 @@
 		F108851F26C07D2800F70023 /* CatWorldTests */ = {
 			isa = PBXGroup;
 			children = (
+				F12D511A26C7310300B690CC /* ViewModel */,
+				F12D511326C6E57D00B690CC /* Model */,
 				F12D510A26C5FFB500B690CC /* Mock */,
 				F12D510326C5F8BC00B690CC /* Network */,
-				F108852026C07D2800F70023 /* CatWorldTests.swift */,
+				F162A49C26C9E47F000160E7 /* Extension */,
 				F108852226C07D2800F70023 /* Info.plist */,
 			);
 			path = CatWorldTests;
@@ -244,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				F108855226C07EE700F70023 /* Breed.swift */,
-				F12D510026C5F3EA00B690CC /* Breed+ImageData.swift */,
+				F12D510026C5F3EA00B690CC /* Breed+ImageModel.swift */,
 				F108855326C07EE700F70023 /* Alert.swift */,
 			);
 			path = Model;
@@ -253,7 +265,6 @@
 		F108855826C07F4600F70023 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				F108855926C07F4600F70023 /* Constants.swift */,
 				F108856426C1A6FB00F70023 /* ImageCache.swift */,
 				F108855426C07EE700F70023 /* Bindable.swift */,
 			);
@@ -311,12 +322,48 @@
 		F12D510A26C5FFB500B690CC /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				F162A49326C9ADA3000160E7 /* Json Data */,
 				F12D510826C5FD1600B690CC /* MockNetworkSession.swift */,
-				F12D510B26C600A700B690CC /* Breeds.json */,
-				F12D510F26C617B300B690CC /* ImageData.json */,
 				F12D510D26C60F3A00B690CC /* MockData.swift */,
+				F162A49626C9BCC5000160E7 /* MockImageCache.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		F12D511326C6E57D00B690CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F12D511426C6E57D00B690CC /* BindableTests.swift */,
+				F12D511526C6E57D00B690CC /* AlertTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F12D511A26C7310300B690CC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F12D511826C6EB9B00B690CC /* CWSearchViewModelTests.swift */,
+				F162A48D26C744E0000160E7 /* BreedCellViewModelTests.swift */,
+				F162A49126C78067000160E7 /* CWDetailViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F162A49326C9ADA3000160E7 /* Json Data */ = {
+			isa = PBXGroup;
+			children = (
+				F12D510B26C600A700B690CC /* Breeds.json */,
+				F12D510F26C617B300B690CC /* ImageModel.json */,
+			);
+			path = "Json Data";
+			sourceTree = "<group>";
+		};
+		F162A49C26C9E47F000160E7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F162A49A26C9E421000160E7 /* XCTest+MockBreed.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,7 +473,7 @@
 				F12D511226C6193E00B690CC /* Breeds.json in Resources */,
 				F108851326C07D2800F70023 /* Assets.xcassets in Resources */,
 				F108850E26C07D2500F70023 /* Main.storyboard in Resources */,
-				F12D511126C6193E00B690CC /* ImageData.json in Resources */,
+				F12D511126C6193E00B690CC /* ImageModel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F12D510C26C600A700B690CC /* Breeds.json in Resources */,
-				F12D511026C617B300B690CC /* ImageData.json in Resources */,
+				F12D511026C617B300B690CC /* ImageModel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,14 +518,13 @@
 				F108850926C07D2500F70023 /* SceneDelegate.swift in Sources */,
 				F108854D26C07EA300F70023 /* IdentifiableProtocol.swift in Sources */,
 				F108854F26C07EA300F70023 /* DecodeData.swift in Sources */,
-				F12D510126C5F3EA00B690CC /* Breed+ImageData.swift in Sources */,
+				F12D510126C5F3EA00B690CC /* Breed+ImageModel.swift in Sources */,
 				F12D50FB26C58F3900B690CC /* BreedCellViewModel.swift in Sources */,
 				F108855626C07EE700F70023 /* Alert.swift in Sources */,
 				F108854E26C07EA300F70023 /* NetworkSessionProtocol.swift in Sources */,
 				F12D50FD26C5B8A800B690CC /* UICollectionView+Background.swift in Sources */,
 				F108855F26C080D300F70023 /* CWSearchViewModel.swift in Sources */,
 				F12D50F926C4CB3600B690CC /* Array+SafeAccess.swift in Sources */,
-				F108855B26C07F4600F70023 /* Constants.swift in Sources */,
 				F12D50F726C4346100B690CC /* UISearchBar+ActivityIndicator.swift in Sources */,
 				F12D50F426C2EE0800B690CC /* CWDetailViewModel.swift in Sources */,
 			);
@@ -488,11 +534,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F162A49B26C9E421000160E7 /* XCTest+MockBreed.swift in Sources */,
+				F162A49726C9BCC5000160E7 /* MockImageCache.swift in Sources */,
+				F162A48E26C744E0000160E7 /* BreedCellViewModelTests.swift in Sources */,
 				F12D510726C5F8BC00B690CC /* NetworkManagerTest.swift in Sources */,
-				F108852126C07D2800F70023 /* CatWorldTests.swift in Sources */,
+				F12D511726C6E57D00B690CC /* AlertTests.swift in Sources */,
+				F12D511626C6E57D00B690CC /* BindableTests.swift in Sources */,
 				F12D510926C5FD1600B690CC /* MockNetworkSession.swift in Sources */,
 				F12D510626C5F8BC00B690CC /* ErrorResultTests.swift in Sources */,
+				F12D511926C6EB9B00B690CC /* CWSearchViewModelTests.swift in Sources */,
 				F12D510E26C60F3A00B690CC /* MockData.swift in Sources */,
+				F162A49226C78067000160E7 /* CWDetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

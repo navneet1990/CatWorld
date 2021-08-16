@@ -10,15 +10,10 @@ class NetworkManagerTest: XCTestCase {
 
     var sut: NetworkManager?
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
         sut = nil
     }
-
 
     func testCatBreedSuccessResponse(){
         // When we don't provide any data to Mock session
@@ -57,7 +52,7 @@ class NetworkManagerTest: XCTestCase {
         // When we don't provide any data to Mock session
 
         // GIVEN: Mock Data and we will initialize mock network session
-        let mockData  = MockData.imageData
+        let mockData  = MockData.imageModel
         let mockId = "mockID"
         let mockURL = URL(string: "www.mockurl.com")
         let session = MockNetworkSession(data: mockData,
@@ -70,7 +65,7 @@ class NetworkManagerTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Expected success with mock data")
 
         // WHEN: Call the server
-        sut?.fetchImageData(for: mockId, completion:
+        sut?.fetchimageModel(for: mockId, completion:
                 { response in
             switch response {
             // Handle the failure

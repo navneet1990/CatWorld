@@ -6,7 +6,7 @@
 import Foundation
 
 protocol DecodeData {
-
+    
     /// Decode the data to Breed Object
     ///
     /// - Parameters:
@@ -14,27 +14,27 @@ protocol DecodeData {
     ///   - completion:  Response in form of Breed if successfull otherwise error
     static func decode(data: Data,
                        completion: @escaping (_ result: Result<[Breed], ErrorResult>) -> Void)
-
+    
     /// Decode the data to Breed image Object
     ///
     /// - Parameters:
     ///   - data: Data to be decoded
     ///   - completion:  Response in form of Image data if successfull otherwise error
-    static func decode(imageData: Data,
-                       completion: @escaping (_ result: Result<Breed.ImageData, ErrorResult>) -> Void)
+    static func decode(imageModel: Data,
+                       completion: @escaping (_ result: Result<Breed.ImageModel, ErrorResult>) -> Void)
 }
 
 extension  NetworkManager: DecodeData {
-    static func decode(imageData: Data, completion: @escaping (Result<Breed.ImageData, ErrorResult>) -> Void) {
+    static func decode(imageModel: Data, completion: @escaping (Result<Breed.ImageModel, ErrorResult>) -> Void) {
         // Decode the JSON
         do {
-            // Decode the JSON into codable type ImageData.
+            // Decode the JSON into codable type imageModel.
             let decoder = JSONDecoder()
-            let responseJson = try decoder.decode(Breed.ImageData.self, from: imageData)
+            let responseJson = try decoder.decode(Breed.ImageModel.self, from: imageModel)
             completion(.success(data: responseJson))
         }
         catch{
-          completion(.failure(.invalidDataFormat))
+            completion(.failure(.invalidDataFormat))
         }
     }
     static func decode(data: Data,
@@ -47,7 +47,7 @@ extension  NetworkManager: DecodeData {
             completion(.success(data: responseJson))
         }
         catch{
-          completion(.failure(.invalidDataFormat))
+            completion(.failure(.invalidDataFormat))
         }
     }
 }

@@ -6,7 +6,7 @@
 import UIKit
 
 class CWSearchViewController: UIViewController {
-
+    
     //MARK:- IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,8 +19,8 @@ class CWSearchViewController: UIViewController {
         let viewModel = CWSearchViewModel()
         return viewModel
     }()
-
-
+    
+    
     //MARK:- View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +28,12 @@ class CWSearchViewController: UIViewController {
         collectionView.setEmptyMessage("Welcome")
         unbindViewModel()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         viewModel.memoryWarning()
     }
-
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue,
                           sender: Any?) {
@@ -54,12 +54,12 @@ private extension CWSearchViewController {
                 self?.searchBar.isLoading = false
             }
         })
-
+        
         viewModel.showAlert.bind { [weak self] alertAction in
             guard let action = alertAction else { return }
             self?.presentAlert(action)
         }
-
+        
         viewModel.backgroundMessage.bind { [weak self] (show,message) in
             DispatchQueue.main.async {
                 if show {
@@ -74,7 +74,7 @@ private extension CWSearchViewController {
                 self?.performSegue(CWDetailViewController.self)
             }
         }
-
+        
         viewModel.searchBarLoading.bind { value in
             DispatchQueue.main.async { [weak self] in
                 self?.searchBar.isLoading = value
@@ -90,13 +90,13 @@ extension CWSearchViewController: UISearchBarDelegate {
                    textDidChange searchText: String) {
         viewModel.searchCats(for: searchText)
     }
-
+    
     // 2
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
+        
         searchBar.searchTextField.resignFirstResponder()
     }
-
+    
     // 3
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.searchTextField.resignFirstResponder()
@@ -116,7 +116,7 @@ extension CWSearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-
+        
         // 1
         guard let breedViewModel = viewModel.breedsViewModel[safe: indexPath.row],
               let cell = collectionView.dequeueReusableCell(
@@ -141,7 +141,7 @@ extension CWSearchViewController: UICollectionViewDelegateFlowLayout {
         let paddingSpace = Layout.leftInsetPadding * (Layout.itemsPerRow + 1)
         let availableWidth = collectionView.frame.width - paddingSpace
         let widthPerItem = availableWidth / Layout.itemsPerRow
-
+        
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
 }
@@ -168,6 +168,6 @@ private extension CWSearchViewController {
     struct Layout {
         static let itemsPerRow: CGFloat = 2
         static let leftInsetPadding: CGFloat = 5
-
+        
     }
 }

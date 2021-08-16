@@ -18,7 +18,6 @@ final class CWSearchViewModel: ViewModelProtocol {
     var backgroundMessage: Bindable<(Bool, String)> = Bindable((false, ""))
     var showDetails: Bindable<Void> = Bindable(())
     var reloadData: Bindable<Void> = Bindable(())
-    var reloadItemAt: Bindable<(indexPath: IndexPath, data: Breed.ImageData)?> = Bindable(nil)
     var searchBarLoading: Bindable<(Bool)> = Bindable(false)
 
     // Details View Model
@@ -113,9 +112,9 @@ final class CWSearchViewModel: ViewModelProtocol {
 private extension CWSearchViewModel {
     
     // Fetch typed text
-    func  search(_ text: String) {
+    func  fetch(_ query: String) {
         searchBarLoading.value = true
-        networkManager?.fetchCatsFromServer(search: searchText) {
+        networkManager?.fetchCatsFromServer(search: query) {
             [weak self] (response) in
             switch response {
             // Handle the failure
@@ -132,7 +131,7 @@ private extension CWSearchViewModel {
         updateQtyTimer?.invalidate()
         updateQtyTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
             guard let self = self else { return }
-            self.search(self.searchText)
+            self.fetch(self.searchText)
         }
     }
 }

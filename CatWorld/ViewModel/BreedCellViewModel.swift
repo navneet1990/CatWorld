@@ -12,11 +12,10 @@ final class BreedCellViewModel: BreedCellViewModelProtocol {
     private let breed: Breed
     private let referenceId: String?
     private let networkManager: NetworkManager
-    private var imageData: Breed.ImageData?
+    private var imageModel: Breed.ImageModel?
     private var getImageCalled = false
 
     let name: String
-
     var showImage: Bindable<Void> = Bindable(())
     var image: UIImage? = nil {
         didSet {
@@ -26,22 +25,24 @@ final class BreedCellViewModel: BreedCellViewModelProtocol {
     }
 
     // MARK:- Initialization
-    init(_ breed: Breed, session: NetworkSession = URLSession.shared) {
+    init(_ breed: Breed,
+         session: NetworkSession = URLSession.shared) {
         self.breed = breed
         self.name = breed.name
         self.referenceId = breed.referenceId?.replacingOccurrences(of: "\n",
                                                                    with: "")
         self.networkManager = NetworkManager(session: session)
-        fetchImageData()
+        fetchimageModel()
     }
 
+    // MARK:- Public methods
     func getImage() {
         getImageCalled = true
-        guard let imageData = imageData else {
-            fetchImageData()
+        guard let imageModel = imageModel else {
+            fetchimageModel()
             return
         }
-        fetchImage(imageData)
+        fetchImage(imageModel)
     }
     func unbind() {
         showImage.unbind()
@@ -51,38 +52,38 @@ final class BreedCellViewModel: BreedCellViewModelProtocol {
 // MARK:- Private extension
 private extension BreedCellViewModel {
     
-     func fetchImageData() {
-         guard let referenceID = referenceId else {
-             image = placeholderImage
-             return
-         }
-         networkManager.fetchImageData(for: referenceID) {
-             [weak self] (response) in
-             switch response {
-             // Handle the failure
-             case .failure( _):
-                 self?.image = self?.placeholderImage
-             // Handle success
-             case .success(let imageData):
-                 self?.breed.imageData = imageData
-                 self?.imageData = imageData
-                 if self?.getImageCalled == true {
-                     self?.fetchImage(imageData)
-                 }
-             }
-         }
-     }
+    func fetchimageModel() {
+        guard let referenceID = referenceId else {
+            image = placeholderImage
+            return
+        }
+        networkManager.fetchimageModel(for: referenceID) {
+            [weak self] (response) in
+            switch response {
+            // Handle the failure
+            case .failure( _):
+                self?.image = self?.placeholderImage
+            // Handle success
+            case .success(let imageModel):
+                self?.breed.imageModel = imageModel
+                self?.imageModel = imageModel
+                if self?.getImageCalled == true {
+                    self?.fetchImage(imageModel)
+                }
+            }
+        }
+    }
 
-      func fetchImage(_ imageData: Breed.ImageData) {
-         guard let image = imageData.image else {
-             ImageCache.publicCache.load(item: imageData) { [weak self] data, image in
-                 if data.url == imageData.url {
-                 self?.image = image
-                 }
-             }
-             return
-         }
-         self.image = image
-     }
+    func fetchImage(_ imageModel: Breed.ImageModel) {
+        guard let image = imageModel.image else {
+            ImageCache.publicCache.load(item: imageModel) { [weak self] data, image in
+                if data.url == imageModel.url {
+                    self?.image = image
+                }
+            }
+            return
+        }
+        self.image = image
+    }
 }
 

@@ -9,12 +9,12 @@ protocol NetworkProtocol {
     typealias SearchResult = Result<[Breed], ErrorResult>
     typealias SearchCompletion = (_ result:
                                    SearchResult) -> Void
-    typealias BreedImageResult = Result<Breed.ImageData,
+    typealias BreedImageResult = Result<Breed.ImageModel,
                                         ErrorResult>
     typealias BreedImageCompletion = (_ result:
                                        BreedImageResult) -> Void
-
-
+    
+    
     /// Method to fetch data server
     ///
     /// - Parameters:
@@ -22,13 +22,13 @@ protocol NetworkProtocol {
     ///   - completion: Response in form of JSON if successfull otherwise error
     func fetchCatsFromServer(search text: String,
                              completion: @escaping SearchCompletion)
-
+    
     /// Method to fetch Image
     ///
     /// - Parameters:
     ///   - urlString: Url to interact with server
     ///   - completion: Response in form of JSON if successfull otherwise error
-
-    func fetchImageData(for id: String,
+    
+    func fetchimageModel(for id: String,
                         completion: @escaping BreedImageCompletion)
 }

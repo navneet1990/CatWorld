@@ -6,7 +6,7 @@
 import Foundation
 
 protocol NetworkSession {
-
+    
     /// Url Session to send request to server
     ///
     /// - Parameters:
@@ -15,7 +15,7 @@ protocol NetworkSession {
     func fetchData(for url: URL,
                    headers: [String: String],
                    completionHandler: @escaping (Data?, URL? ,Error?) -> Void)
-
+    
     /// Finish and invalidate all the requests
     func finishAllRequest()
 }
@@ -27,7 +27,7 @@ extension URLSession: NetworkSession {
                                                  URL?,
                                                  Error?)
                     -> Void) {
-
+        
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = headers
         

@@ -9,14 +9,14 @@ protocol ImageCacheProtocol: AnyObject {
 
     func clearCache()
     func cancelAllRequest()
-    func load(item: Breed.ImageData,
-              completion: @escaping (Breed.ImageData,
+    func load(item: Breed.ImageModel,
+              completion: @escaping (Breed.ImageModel,
                                      UIImage?) -> Swift.Void)
 }
 
-final class ImageCache: ImageCacheProtocol {
+final class ImageCache {
 
-    typealias Image = Breed.ImageData
+    typealias Image = Breed.ImageModel
     private let cachedImages = NSCache<NSURL, UIImage>()
     private var loadingResponses = [URL: [(Image, UIImage?) -> Swift.Void]]()
     
@@ -29,6 +29,10 @@ final class ImageCache: ImageCacheProtocol {
 
     private init() { }
 
+}
+
+// Image Cache Protocol
+extension ImageCache: ImageCacheProtocol {
 
     // Cancel all requests
     func cancelAllRequest() {
@@ -43,8 +47,8 @@ final class ImageCache: ImageCacheProtocol {
     }
     /// - Tag: cache
     // Returns the cached image if available, otherwise asynchronously loads and caches it.
-    final func load(item: Breed.ImageData,
-                    completion: @escaping (Image, UIImage?) -> Swift.Void) {
+    func load(item: Breed.ImageModel,
+              completion: @escaping (Image, UIImage?) -> Swift.Void) {
 
         guard let url = URL(string: item.url) else {
             completion(item, nil)
@@ -91,6 +95,7 @@ final class ImageCache: ImageCacheProtocol {
         }
     }
 }
+
 
 private extension ImageCache {
     func image(url: NSURL) -> UIImage? {

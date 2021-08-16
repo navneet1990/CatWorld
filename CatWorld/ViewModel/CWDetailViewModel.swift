@@ -5,22 +5,32 @@
 
 import UIKit
 
-final class CWDetailViewModel {
+final class CWDetailViewModel: DetailsViewModelProtocol {
 
     //MARK:- Properties
     private let wikipedia: URL?
+    private let imageCache: ImageCacheProtocol
+    private var imageModel: Breed.ImageModel?
+    
     let name: String
     let hideWikipedia: Bool
     let temperant: String?
     let energy: String?
-    var image: UIImage?
+
+    var image: UIImage? {
+        didSet {
+            loadImage.value = ()
+        }
+    }
 
     var displayDetails: Bindable<Void> = Bindable(())
-    var reloadImage: Bindable<Void> = Bindable(())
+    var loadImage: Bindable<Void> = Bindable(())
     var redirectToSafari: Bindable<URL?> = Bindable(nil)
 
     // MARK:- Intialization
-    init(breed: Breed) {
+    init(breed: Breed,
+         imageCache: ImageCacheProtocol = ImageCache.publicCache) {
+        self.imageCache = imageCache
         self.name = breed.name
         self.wikipedia = URL(string: breed.wikipedia ?? "")
         if let energy = breed.energyLevel {
@@ -30,30 +40,29 @@ final class CWDetailViewModel {
         }
         self.temperant = breed.temperament
         self.hideWikipedia = breed.wikipedia == nil
-        guard let item = breed.imageData else {
-            return
-        }
-        loadImage(item)
+        self.imageModel = breed.imageModel
     }
-
+    
     // MARK:- Public methods
     func loadDetails() {
         displayDetails.value = ()
+        getImage()
     }
     func openWikipedia() {
         redirectToSafari.value = wikipedia
     }
-
-    private func loadImage(_ item: Breed.ImageData) {
-        guard let image = item.image else {
-            ImageCache.publicCache.load(item: item) {[weak self] _, image in
-                self?.image = image
-                item.image = image
-                self?.reloadImage.value = ()
+    
+    private func getImage() {
+        if let imageModel = imageModel {
+            guard let image = imageModel.image else {
+                imageCache.load(item: imageModel) {[weak self] _, image in
+                    self?.image = image
+                    imageModel.image = image
+                }
+                return
             }
-           return
+            self.image = image
         }
-        self.image = image
     }
 }
 

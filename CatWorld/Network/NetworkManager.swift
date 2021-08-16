@@ -9,7 +9,7 @@ struct NetworkManager: NetworkProtocol {
     typealias SearchResult = Result<[Breed], ErrorResult>
     typealias SearchCompletion = (_ result: SearchResult) -> Void
 
-    typealias BreedImageResult = Result<Breed.ImageData, ErrorResult>
+    typealias BreedImageResult = Result<Breed.ImageModel, ErrorResult>
     typealias BreedImageCompletion = (_ result: BreedImageResult) -> Void
 
     private let session: NetworkSession
@@ -22,18 +22,18 @@ struct NetworkManager: NetworkProtocol {
     // MARK:- Network protocol methods
     func fetchCatsFromServer(search text: String,
                              completion: @escaping SearchCompletion) {
-        session.finishAllRequest()
-
         // Validate for UI testing
         if isUITestCaseRunning(){
-            guard let data = getMockData() else{
-                completion(.failure(.invalidDataFormat))
-                return
-            }
-
-            NetworkManager.decode(data: data, completion: completion)
+          guard let data = getMockBreedsData() else{
+            completion(.failure(.invalidDataFormat))
             return
+          }
+
+          NetworkManager.decode(data: data, completion: completion)
+          return
         }
+
+        session.finishAllRequest()
 
         // Get a URL to load, and a URLSession to load it.
         let endPoint = Endpoint.search(text)
@@ -58,7 +58,7 @@ struct NetworkManager: NetworkProtocol {
         }
     }
 
-    func fetchImageData(for id: String,
+    func fetchimageModel(for id: String,
                         completion: @escaping BreedImageCompletion) {
 
 
@@ -78,7 +78,7 @@ struct NetworkManager: NetworkProtocol {
             }
             
             // Decode the JSON
-            NetworkManager.decode(imageData: data, completion: completion)
+            NetworkManager.decode(imageModel: data, completion: completion)
         }
     }
 }
