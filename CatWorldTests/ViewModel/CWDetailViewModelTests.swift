@@ -1,5 +1,5 @@
 //
-//  CWDetailsutTests.swift
+//  CWDetailViewModelTests.swift
 //  CatWorldTests
 //
 
