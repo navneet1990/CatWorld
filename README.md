@@ -16,7 +16,8 @@ Below are the screens:
 - [Requirements](#requirements)
 - [Approaches](#approaches)
 - [Limitations](#limitations)
-- [Known issues](#known)
+- [Known Issues](#known)
+- [References](#references)
 
 ## Features
 
@@ -65,6 +66,9 @@ App does not have any major issues, but still small improvements can be added to
 - Support for Offline handling using core data.
 - Storing images url in first API call, this will avoid unnecessary extra call to get the URL. But its backened error.
 - Errors can be handled better.
+
+## References:
+- [Asynchronously Loading Images](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/asynchronously_loading_images_into_table_and_collection_views#overview)
 
 **These above limitationd and issues are improvments, which could be addressed easily if required. This code is just an examply of MVVM pattern and how fast we can load the data and also support Unit testing.**
 
